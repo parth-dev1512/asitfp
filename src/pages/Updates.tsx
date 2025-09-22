@@ -116,19 +116,6 @@ const Updates = () => {
         </p>
       </div>
 
-      {/* Newsletter Signup */}
-      <div className="bg-accent rounded-2xl p-8 mb-12 text-center">
-        <Bell className="h-12 w-12 text-primary mx-auto mb-4" />
-        <h2 className="font-heading text-2xl font-bold text-foreground mb-2">
-          Stay Updated
-        </h2>
-        <p className="text-muted-foreground mb-6">
-          Subscribe to our newsletter to receive the latest updates directly in your inbox.
-        </p>
-        <Button size="lg" className="shadow-soft">
-          Subscribe to Newsletter
-        </Button>
-      </div>
 
       {/* Updates Grid */}
       <div className="grid gap-6">
