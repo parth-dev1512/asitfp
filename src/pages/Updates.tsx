@@ -2,6 +2,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, MapPin, Users, ExternalLink, Bell } from "lucide-react";
+import tradeSummitImage from "@/assets/trade-summit.jpg";
+import digitalWorkshopImage from "@/assets/digital-workshop.jpg";
+import munConferenceImage from "@/assets/mun-conference.jpg";
 
 const Updates = () => {
   const updates = [
@@ -14,6 +17,7 @@ const Updates = () => {
       location: "Ashoka University Auditorium",
       status: "Upcoming",
       attendees: "200+ Expected",
+      image: tradeSummitImage,
     },
     {
       id: 2,
@@ -24,6 +28,7 @@ const Updates = () => {
       location: "Conference Room A",
       status: "Registration Open",
       attendees: "50 seats available",
+      image: digitalWorkshopImage,
     },
     {
       id: 3,
@@ -44,6 +49,7 @@ const Updates = () => {
       location: "Delhi University",
       status: "Completed",
       attendees: "15 participants",
+      image: munConferenceImage,
     },
     {
       id: 5,
@@ -120,7 +126,16 @@ const Updates = () => {
       {/* Updates Grid */}
       <div className="grid gap-6">
         {updates.map((update) => (
-          <Card key={update.id} className="hover:shadow-medium transition-all duration-300">
+          <Card key={update.id} className="group hover:scale-[1.02] hover:shadow-large transition-all duration-300 cursor-pointer overflow-hidden">
+            {update.image && (
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src={update.image} 
+                  alt={update.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            )}
             <CardHeader>
               <div className="flex items-start justify-between">
                 <div className="flex items-center space-x-3">
@@ -132,7 +147,7 @@ const Updates = () => {
                         {update.status}
                       </Badge>
                     </div>
-                    <CardTitle className="text-xl text-foreground">
+                    <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
                       {update.title}
                     </CardTitle>
                   </div>
@@ -161,7 +176,7 @@ const Updates = () => {
               </div>
               {(update.status === "Registration Open" || update.status === "Upcoming") && (
                 <div className="mt-4">
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" className="group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                     Learn More <ExternalLink className="ml-1 h-4 w-4" />
                   </Button>
                 </div>
